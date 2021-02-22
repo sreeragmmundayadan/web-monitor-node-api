@@ -6,7 +6,7 @@ const logService = require('../services/monitor-log.service')
 
 
 const schedule = async () => {
-    cron.schedule('* * * * *', async () => {
+    cron.schedule('0 */5 * * * *', async () => {
         const activeMonitorings = await monitorService.getAllActiveMonitorings()
         if (activeMonitorings.length > 0) {
             activeMonitorings.forEach(async (monitoring) => {
