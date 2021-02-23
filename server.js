@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const http = require('http');
+var helmet = require('helmet');
 
 
 const app = express();
@@ -18,6 +19,7 @@ var corsOptions = {
   origin: "http://localhost:4001"
 };
 
+app.use(helmet());
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
